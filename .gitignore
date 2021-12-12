@@ -1,5 +1,4 @@
 dev_env/
-__pychache__/
-
+__pycache__/
 *.sqlite3
 .idea
