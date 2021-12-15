@@ -1,9 +1,11 @@
-{% extends "blog/base.html" %} {% block content %} {% for post in posts %}
+{% extends "blog/base.html" %} {% block content %} 
+{% for post in posts %}
 <article class="media content-section">
   <img
     class="rounded-circle article-img"
     src="{{post.author.profile.image.url}}"
   />
+  
   <div class="media-body">
     <div class="article-metadata">
       <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
@@ -34,4 +36,19 @@
 {% if page_obj.has_next %}
 <a class="btn btn-outline-info btn-sm mb-4" href="?page{{page_obj.next_page_number}}">Next</a>
 <a class="btn btn-outline-info btn-sm mb-4" href="?page={{ page_obj.paginator.num_pages}}">Last</a>
-{% endif %} {% endif %} {% endblock content %}
+{% endif %}
+ {% endif %} 
+ <footer class="footer border-top py-5">
+   <h4 class="text-center">contact Developer</h4>
+         {% for post in posts%}
+         {% if post.author.is_superuser%}
+         <a href="{% url 'user-posts' post.author.username %}"><img class="rounded-circle article-img" src="{{post.author.profile.image.url}}"/></a>
+         {% endif %}
+         {% endfor%}
+         <a href="https://github.com/anonymousdomain"><i class="fab fa-github fa-2x"></i></a>
+         <a href="https://linkedin.com/in/anonymous-domain"><i class="fab fa-linkedin fa-2x"></i></a>
+         <a href="https://t.me/anonymous_1565"><i class="fab fa-telegram fa-2x"></i></a>
+         <a href="#"><i class="fas fa-envelope fa-2x"></i></a>
+     </div>
+</footer>
+{% endblock content %}

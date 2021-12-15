@@ -1,4 +1,5 @@
 from django.shortcuts import render,get_object_or_404
+from django.contrib import admin
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import (LoginRequiredMixin,
                                         UserPassesTestMixin)
@@ -13,6 +14,7 @@ from .models import Post
 
 def home(request):
     context = {
+        'admin':admin,
         'posts': Post.objects.all()
     }
     return render(request, 'blog/home.html', context)
