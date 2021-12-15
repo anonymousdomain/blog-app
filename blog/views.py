@@ -23,6 +23,7 @@ class PostListView(ListView):
     context_object_name='posts'
     #post ordered by latest time post
     ordering=['-posted_date']
+    paginate_by=6
 class PostDetailView(DetailView):
     model=Post
     
