@@ -138,3 +138,6 @@ EMAIL_PORT=587
 EMAIL_USE_TLS=True
 EMAIL_HOST_USER=os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_PASS')
+#heroku settings
+import django_heroku
+django_heroku.settings(lacals())
